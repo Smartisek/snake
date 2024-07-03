@@ -22,6 +22,7 @@ int main()
         window.clear();
         window.draw(snake);
         window.display();
+
     }
 
     return 0;

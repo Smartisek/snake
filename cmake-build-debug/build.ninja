@@ -57,6 +57,14 @@ build CMakeFiles/snake.dir/main.cpp.obj: CXX_COMPILER__snake_unscanned_Debug C$:
   OBJECT_DIR = CMakeFiles\snake.dir
   OBJECT_FILE_DIR = CMakeFiles\snake.dir
 
+build CMakeFiles/snake.dir/Snake.cpp.obj: CXX_COMPILER__snake_unscanned_Debug C$:/Users/domal/OneDrive/Plocha/DKIT/SecondYear/C++/snake/Snake.cpp || cmake_object_order_depends_target_snake
+  DEFINES = -DSFML_STATIC
+  DEP_FILE = CMakeFiles\snake.dir\Snake.cpp.obj.d
+  FLAGS = -g -std=gnu++11 -fdiagnostics-color=always
+  INCLUDES = -isystem C:/SFML-2.6.1/include
+  OBJECT_DIR = CMakeFiles\snake.dir
+  OBJECT_FILE_DIR = CMakeFiles\snake.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target snake
@@ -65,7 +73,7 @@ build CMakeFiles/snake.dir/main.cpp.obj: CXX_COMPILER__snake_unscanned_Debug C$:
 #############################################
 # Link the executable snake.exe
 
-build snake.exe: CXX_EXECUTABLE_LINKER__snake_Debug CMakeFiles/snake.dir/main.cpp.obj | C$:/SFML-2.6.1/lib/libsfml-system-s-d.a C$:/SFML-2.6.1/lib/libsfml-window-s-d.a C$:/SFML-2.6.1/lib/libsfml-graphics-s-d.a C$:/SFML-2.6.1/lib/libsfml-audio-s-d.a C$:/SFML-2.6.1/lib/libsfml-window-s-d.a C$:/SFML-2.6.1/lib/libfreetype.a C$:/SFML-2.6.1/lib/libsfml-system-s-d.a C$:/SFML-2.6.1/lib/libopenal32.a C$:/SFML-2.6.1/lib/libvorbisfile.a C$:/SFML-2.6.1/lib/libvorbisenc.a C$:/SFML-2.6.1/lib/libvorbis.a C$:/SFML-2.6.1/lib/libogg.a C$:/SFML-2.6.1/lib/libFLAC.a
+build snake.exe: CXX_EXECUTABLE_LINKER__snake_Debug CMakeFiles/snake.dir/main.cpp.obj CMakeFiles/snake.dir/Snake.cpp.obj | C$:/SFML-2.6.1/lib/libsfml-system-s-d.a C$:/SFML-2.6.1/lib/libsfml-window-s-d.a C$:/SFML-2.6.1/lib/libsfml-graphics-s-d.a C$:/SFML-2.6.1/lib/libsfml-audio-s-d.a C$:/SFML-2.6.1/lib/libsfml-window-s-d.a C$:/SFML-2.6.1/lib/libfreetype.a C$:/SFML-2.6.1/lib/libsfml-system-s-d.a C$:/SFML-2.6.1/lib/libopenal32.a C$:/SFML-2.6.1/lib/libvorbisfile.a C$:/SFML-2.6.1/lib/libvorbisenc.a C$:/SFML-2.6.1/lib/libvorbis.a C$:/SFML-2.6.1/lib/libogg.a C$:/SFML-2.6.1/lib/libFLAC.a
   FLAGS = -g
   LINK_LIBRARIES = C:/SFML-2.6.1/lib/libsfml-system-s-d.a  C:/SFML-2.6.1/lib/libsfml-window-s-d.a  C:/SFML-2.6.1/lib/libsfml-graphics-s-d.a  C:/SFML-2.6.1/lib/libsfml-audio-s-d.a  C:/SFML-2.6.1/lib/libsfml-window-s-d.a  -lOpenGL32  -lgdi32  C:/SFML-2.6.1/lib/libfreetype.a  C:/SFML-2.6.1/lib/libsfml-system-s-d.a  -lwinmm  C:/SFML-2.6.1/lib/libopenal32.a  C:/SFML-2.6.1/lib/libvorbisfile.a  C:/SFML-2.6.1/lib/libvorbisenc.a  C:/SFML-2.6.1/lib/libvorbis.a  C:/SFML-2.6.1/lib/libogg.a  C:/SFML-2.6.1/lib/libFLAC.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\snake.dir
