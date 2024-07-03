@@ -4,6 +4,7 @@
 
 #ifndef SNAKE_SNAKE_H
 #define SNAKE_SNAKE_H
+#include <SFML/Graphics.hpp>
 #include <vector>
 using namespace std;
 
@@ -25,11 +26,13 @@ public:
     int getSize() const;
     pair<int, int> getPosition() const;
     Direction getDirection() const;
+    string getStatus() const;
 
     void setSize(int newSize);
     void setPosition(pair<int, int> newPosition);
     void setDirection(Direction newDirection);
     void setStatus(bool newStatus);
+    void drawSnake(Snake &snake ,sf::RenderWindow &window);
 };
 
 
