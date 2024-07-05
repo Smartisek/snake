@@ -27,12 +27,15 @@ public:
     pair<int, int> getPosition() const;
     Direction getDirection() const;
     string getStatus() const;
+    string positionToString(pair<int, int> position);
 
     void setSize(int newSize);
     void setPosition(pair<int, int> newPosition);
     void setDirection(Direction newDirection);
     void setStatus(bool newStatus);
     void drawSnake(Snake &snake ,sf::RenderWindow &window);
+    bool isWayBlocked() const;
+    void move();
 };
 
 

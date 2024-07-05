@@ -6,15 +6,22 @@ using namespace sf;
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(1200, 1000), "Snake!");
-//    sf::RectangleShape snake;
-//    snake.setSize(Vector2f(50,50));
-//    snake.setFillColor(sf::Color::Blue);
-//    snake.setPosition(550.00, 450.00);
-      Snake snake(550, 450, Direction::NORTH, 1);
-
+    Clock clock;
+    Time timeElapsedSinceLastUpdate = Time::Zero; //variable for keeping up track of how much elapsed since created
+    Time TimePerFrame = seconds(0.05f); //one second for each update
+    Snake snake(550, 450, Direction::NORTH, 1);
 
     while (window.isOpen())
     {
+        Time elapsedTime = clock.restart(); //restart clock
+        timeElapsedSinceLastUpdate += elapsedTime; //adding into elapsed time
+
+        while(timeElapsedSinceLastUpdate > TimePerFrame){ //when time elapsed is bigger than frame time, move can be called
+            timeElapsedSinceLastUpdate -= TimePerFrame;
+            snake.move();
+            cout << snake.positionToString(snake.getPosition()) << endl;
+        }
+
         sf::Event event;
         while (window.pollEvent(event))
         {
@@ -22,12 +29,32 @@ int main()
                 window.close();
         }
 
+        if(Keyboard::isKeyPressed(Keyboard::Up)){
+            snake.setDirection(Direction::NORTH);
+        } else if(Keyboard::isKeyPressed(Keyboard::Down)){
+            snake.setDirection(Direction::SOUTH);
+        }
+
+//        sf::Event control;
+//        while(window.pollEvent(control)){
+//            switch (control.type) {
+//                case Event::KeyReleased:
+//                    switch (control.key.code) {
+//                        case sf::Keyboard::Up:
+//                            snake.setDirection(Direction::NORTH);
+//                            break;
+//                        case sf::Keyboard::Down:
+//                            snake.setDirection(Direction::SOUTH);
+//                            break;
+//                    }
+//                    break;
+//            }
+//        }
+
+
         window.clear();
-//        window.draw(snake);
         snake.drawSnake(snake, window);
         window.display();
-
     }
-
     return 0;
 }

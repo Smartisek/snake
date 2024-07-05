@@ -43,6 +43,10 @@ void Snake::setStatus(bool newStatus){
     this->alive = newStatus;
 }
 
+string Snake::positionToString(pair<int, int> position) {
+    return "(" + to_string(position.first) + "," + to_string(position.second) + ")";
+}
+
 void Snake::drawSnake(Snake &snake,sf::RenderWindow &window){
     sf::RectangleShape shape;
     shape.setFillColor(sf::Color::Blue);
@@ -52,4 +56,41 @@ void Snake::drawSnake(Snake &snake,sf::RenderWindow &window){
     if(snake.getStatus() == "Alive"){
         window.draw(shape);
     }
+}
+
+bool Snake::isWayBlocked() const {
+    pair<int, int> currentPosition = getPosition();
+    Direction currentDirection = getDirection();
+
+    int windowX = 1200;
+    int windowY = 1000;
+
+    if((currentPosition.first == 0 + 25 && (currentDirection == Direction::EAST)) ||
+        currentPosition.first == windowX - 25 && (currentDirection == Direction::WEST) ||
+        currentPosition.second == 0 + 25 && (currentDirection == Direction::NORTH) ||
+        currentPosition.second == windowY - 25 && (currentDirection == Direction::SOUTH) ) {
+
+        return true;
+    } else {
+        return false;
+    }
+}
+
+void Snake::move() {
+    pair<int, int> newPosition = getPosition();
+
+    if(isWayBlocked()){
+        setDirection(Direction::SOUTH);
+    }
+
+
+    switch (getDirection()) {
+        case Direction::NORTH:
+            newPosition.second -=5;
+            break;
+        case Direction::SOUTH:
+            newPosition.second +=5;
+            break;
+    }
+    setPosition(newPosition);
 }
